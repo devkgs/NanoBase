@@ -7,7 +7,7 @@ endfunction()
 
 ### Example Test ###
 set(EXAMPLE_TEST_SOURCES
-        example_test.cpp
+        database_test.cpp
         main.cpp
 )
 create_test_binary(Example_Tests "${EXAMPLE_TEST_SOURCES}")

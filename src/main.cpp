@@ -1,11 +1,13 @@
 #include <iostream>
+#include "Database.h"
+
 int main() {
     auto lang = "C++";
     std::cout << "Hello and welcome to " << lang << "!\n";
 
-    for (int i = 1; i <= 5; i++) {
-        std::cout << "i = " << i << std::endl;
-    }
+    Database db;
+    db.createTable("personnes", {"id", "nom", "age"});
+    db.insertInto("personnes", {1, "Alice", 25});
 
     return 0;
 }
