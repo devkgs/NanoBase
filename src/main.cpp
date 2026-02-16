@@ -11,7 +11,7 @@ int main() {
     db.insertInto("personnes", {2, "Rob", 55});
 
     auto uid = db.getUniqueId("personnes", "nom", "Alice");
-    if (uid.has_value()) {
+   /* if (uid.has_value()) {
         std::cout << "main found : " << *uid << std::endl;
     }
 
@@ -20,6 +20,6 @@ int main() {
         std::cout << "main found : " << *uid << std::endl;
     }else {
         std::cout << " not found ! "<< std::endl;
-    }
+    }*/
     return 0;
 }

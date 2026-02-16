@@ -40,7 +40,7 @@ public:
         }
     }
 
-    std::optional<DbError>  createTable(const std::string& tableName, const std::vector<std::string>& columns) {
+    std::optional<DbError> createTable(const std::string& tableName, const std::vector<std::string>& columns) {
         // Verify that the table did not already exist
         if (tables.contains(tableName)) {
             return DbError::TableExists;
@@ -49,28 +49,30 @@ public:
         return std::nullopt;
     }
 
-     std::optional<DbError> insertInto(const std::string& tableName, const std::vector<CellValue>& cells) {
+     std::variant<int, DbError> insertInto(const std::string& tableName, const std::vector<CellValue>& cells) {
         if (!tables.contains(tableName)) {
             return DbError::TableNotFound;
         }
         Table& table = tables[tableName];
-        table.rows.push_back({table.nextId++, cells});
+        int assignedId = table.nextId++;
+        table.rows.push_back({assignedId, cells});
 
-        return std::nullopt;
+        return assignedId;
     }
 
-    std::optional<int> getUniqueId(const std::string& tableName, const std::string & column_name, std::variant<int, double, std::string> value) {
-        if (!tables.contains(tableName)) {
-            return std::nullopt;
-        }
+    std::variant<int, DbError> getUniqueId(const std::string& tableName, const std::string & column_name, CellValue value) {
+        auto itTable = tables.find(tableName);
 
-        Table& table = tables[tableName];
+        if (itTable == tables.end()) {
+            return DbError::TableNotFound;
+        }
+        Table& table = itTable->second;
 
         // Find column
         auto it = std::find(table.columnNames.begin(), table.columnNames.end(), column_name);
 
         if (it == table.columnNames.end()) {
-            return std::nullopt;
+            return DbError::ColumnNotFound;
         }
 
         // Find value in column
@@ -82,7 +84,7 @@ public:
             }
         }
         // Not found
-        return std::nullopt;
+        return DbError::RowNotFound;
     }
 
     std::optional<DbError> deleteRow(const std::string& tableName, int uniqueId) {

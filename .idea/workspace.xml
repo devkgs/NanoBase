@@ -37,13 +37,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244b286e-8c15-42ba-91ac-500de1b5b258" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="244b286e-8c15-42ba-91ac-500de1b5b258" name="Changes" comment="add error codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/database_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/database_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,14 +157,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Google Test.Database_Tests" />
-      <item itemvalue="Google Test.runAllTests" />
       <item itemvalue="CMake Application.NanoBase_lib" />
       <item itemvalue="CMake Application.NanoBase_run" />
       <item itemvalue="CMake Application.gmock" />
       <item itemvalue="CMake Application.gmock_main" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
+      <item itemvalue="Google Test.Database_Tests" />
+      <item itemvalue="Google Test.runAllTests" />
     </list>
   </component>
   <component name="TaskManager">
@@ -190,7 +187,8 @@
       <workItem from="1771071942667" duration="3004000" />
       <workItem from="1771080764881" duration="7000" />
       <workItem from="1771248014700" duration="6799000" />
-      <workItem from="1771259192433" duration="7000" />
+      <workItem from="1771259192433" duration="595000" />
+      <workItem from="1771273313327" duration="3171000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -208,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770301167165</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add error codes">
+      <option name="closed" value="true" />
+      <created>1771259204787</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771259204787</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +228,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="create database class" />
-    <option name="LAST_COMMIT_MESSAGE" value="create database class" />
+    <MESSAGE value="add error codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="add error codes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
