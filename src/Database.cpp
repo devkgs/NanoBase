@@ -42,7 +42,7 @@ std::variant<int, DbError> Database::getUniqueId(const std::string &tableName, c
     if (itTable == tables.end()) {
         return DbError::TableNotFound;
     }
-    Table &table = itTable->second;
+    Table &table = itTable->second; // first=key, second=data
 
     // Find column
     const auto it = std::find(table.columnNames.begin(), table.columnNames.end(), column_name);
@@ -59,7 +59,6 @@ std::variant<int, DbError> Database::getUniqueId(const std::string &tableName, c
             return id;
         }
     }
-    // Not found
     return DbError::RowNotFound;
 }
 
