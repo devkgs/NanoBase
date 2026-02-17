@@ -37,10 +37,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244b286e-8c15-42ba-91ac-500de1b5b258" name="Changes" comment="add error codes">
+    <list default="true" id="244b286e-8c15-42ba-91ac-500de1b5b258" name="Changes" comment="fix hints">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/database_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/database_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +61,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -101,7 +104,8 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;/home/skrieg/dev/NanoBase/main.cpp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.android.studio.ml.McpConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -188,7 +192,9 @@
       <workItem from="1771080764881" duration="7000" />
       <workItem from="1771248014700" duration="6799000" />
       <workItem from="1771259192433" duration="595000" />
-      <workItem from="1771273313327" duration="3171000" />
+      <workItem from="1771273313327" duration="5517000" />
+      <workItem from="1771314066854" duration="909000" />
+      <workItem from="1771314990103" duration="2572000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -214,7 +220,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771259204787</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="return optional and variant values">
+      <option name="closed" value="true" />
+      <created>1771277622632</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771277622632</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix hints">
+      <option name="closed" value="true" />
+      <created>1771279194104</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771279194104</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +251,9 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="create database class" />
     <MESSAGE value="add error codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add error codes" />
+    <MESSAGE value="return optional and variant values" />
+    <MESSAGE value="fix hints" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix hints" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

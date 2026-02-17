@@ -72,7 +72,7 @@ TEST(DataBaseTest, check_errors) {
     Database db;
     db.createTable("person", {"id", "name", "age"});
 
-    db.insertInto("unvalid_table", {1, "Alice", 25});
+    db.insertInto("invalid_table", {1, "Alice", 25});
 }
 
 TEST(DataBaseTest, deleteRow_test) {
@@ -90,5 +90,5 @@ TEST(DataBaseTest, deleteRow_test) {
     uid = db.getUniqueId("person", "name", "Alice");
     ASSERT_TRUE(std::holds_alternative<Database::DbError>(uid));
 
-    // Check with unvalid table name
+    // Check with invalid table name
 }
