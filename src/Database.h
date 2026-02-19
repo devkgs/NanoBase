@@ -16,7 +16,6 @@ struct Row {
 };
 
 struct Table {
-    std::string name;
     std::vector<std::string> columnNames;
     std::vector<Row> rows;
     int nextId = 1;

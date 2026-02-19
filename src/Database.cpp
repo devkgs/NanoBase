@@ -20,7 +20,7 @@ std::optional<DbError> Database::createTable(const std::string &tableName, const
     if (tables.contains(tableName)) {
         return DbError::TableExists;
     }
-    tables[tableName] = {tableName, columns, {}};
+    tables[tableName] = {.columnNames = columns, .rows = {}, .nextId = 1};
     return std::nullopt;
 }
 
@@ -56,7 +56,6 @@ std::variant<int, DbError> Database::getUniqueId(const std::string &tableName, c
     const auto index = std::distance(table.columnNames.begin(), it);
     for (const auto &[id, cells]: table.rows) {
         if (cells[index] == value) {
-            std::cout << "found" << std::endl;
             return id;
         }
     }
@@ -84,14 +83,19 @@ std::optional<DbError> Database::deleteRow(const std::string &tableName, int uni
 
 void Database::save(Serializer &s) {
     // iterate all tables
-    for (auto const& [name, table])
-        // create table
+    for (const auto& [tableName_it, table_content_it]:tables) {
+        s.startTable(tableName_it, table_content_it.columnNames);
         // iterate all rows
-            // start row
-            // iterate all items of the row
-                // write item
-            // end row
-        // end table
+        for (const auto& row_it : table_content_it.rows) {
+            s.startRow(row_it.id);
+            // iterate all items in row
+            for (const auto& row_item : row_it.cells) {
+                s.writeValue(row_item);
+            }
+            s.endRow();
+        }
+        s.endTable();
+    }
 }
 
 void Database::printTable(const std::string &tableName) {

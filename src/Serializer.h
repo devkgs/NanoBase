@@ -14,7 +14,7 @@ public:
     virtual void endTable() = 0;
     virtual void startRow(int uid) = 0;
     virtual void endRow() = 0;
-    virtual void writeValue(CellValue) = 0;
+    virtual void writeValue(const CellValue& value) = 0;
     virtual ~Serializer() = default;
 };
 
