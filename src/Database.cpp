@@ -1,5 +1,5 @@
 #include "Database.h"
-
+#include "Serializer.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,6 +24,7 @@ std::optional<DbError> Database::createTable(const std::string &tableName, const
     return std::nullopt;
 }
 
+// Insert Row
 std::variant<int, DbError> Database::insertInto(const std::string &tableName, const std::vector<CellValue> &cells) {
     if (!tables.contains(tableName)) {
         return DbError::TableNotFound;
@@ -81,6 +82,17 @@ std::optional<DbError> Database::deleteRow(const std::string &tableName, int uni
     return std::nullopt;
 }
 
+void Database::save(Serializer &s) {
+    // iterate all tables
+    for (auto const& [name, table])
+        // create table
+        // iterate all rows
+            // start row
+            // iterate all items of the row
+                // write item
+            // end row
+        // end table
+}
 
 void Database::printTable(const std::string &tableName) {
     const auto &table = tables[tableName];

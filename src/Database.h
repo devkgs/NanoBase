@@ -7,8 +7,8 @@
 #include <unordered_map>
 #include <variant>
 #include <optional>
+#include "Serializer.h"
 
-using CellValue = std::variant<int, double, std::string>;
 
 struct Row {
     int id;
@@ -40,6 +40,7 @@ public:
                                            const CellValue &value);
     std::optional<DbError> deleteRow(const std::string &tableName, int uniqueId);
     void printTable(const std::string &tableName);
+    void save(Serializer &s);
 private:
     std::unordered_map<std::string, Table> tables;
 };

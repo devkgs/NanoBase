@@ -33,3 +33,17 @@ Table: sensor2
 |unique_id  | timestamp | temp   |
 |-----------|-----------|--------|
 | 123       | 23:12     | 23.5°C |
+| 124       | 23:13     | 24.5°C |
+
+
+# Serializer
+interface serializer
+
+
+
+## methods
+- startTable(name, fields_name)
+- endTable
+- addRow(uid, )
+
+
