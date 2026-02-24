@@ -4,17 +4,17 @@
 #include <string>
 #include <optional>
 
-class IInputStorage {
+class InputStorage {
 public:
-    virtual ~IInputStorage() = default;
+    virtual ~InputStorage() = default;
     virtual std::optional<std::string> load() = 0;
 };
 
-class IOutputStorage {
+class OutputStorage {
 public:
-    virtual ~IOutputStorage() = default;
+    virtual ~OutputStorage() = default;
     virtual void save(const std::string& content) = 0;
 };
 
-class IStorage : public IInputStorage, public IOutputStorage {};
+class Storage : public InputStorage, public OutputStorage {};
 #endif //NANOBASE_STORAGE_H

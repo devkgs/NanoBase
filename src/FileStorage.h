@@ -3,7 +3,7 @@
 
 #include "Storage.h"
 
-class FileStorage: public IStorage {
+class FileStorage: public Storage {
 public:
     explicit FileStorage(std::string f): filename_(std::move(f)){}
     void save(const std::string& content) override;
