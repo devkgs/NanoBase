@@ -1,5 +1,5 @@
 #include "Database.h"
-#include "Serializer.h"
+#include "Serialization.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -84,18 +84,22 @@ std::optional<DbError> Database::deleteRow(const std::string &tableName, int uni
 void Database::save(Serializer &s) {
     // iterate all tables
     for (const auto& [tableName_it, table_content_it]:tables) {
-        s.startTable(tableName_it, table_content_it.columnNames);
+        s.startTable(tableName_it, table_content_it.columnNames, table_content_it.nextId);
         // iterate all rows
         for (const auto& row_it : table_content_it.rows) {
-            s.startRow(row_it.id);
+            s.serializeRow(row_it);
             // iterate all items in row
-            for (const auto& row_item : row_it.cells) {
-                s.writeValue(row_item);
-            }
-            s.endRow();
+           // for (const auto& row_item : row_it.cells) {
+             //   s.writeValue(row_item);
+            //}
+            //s.endRow();
         }
         s.endTable();
     }
+}
+
+std::optional<DbError> load(std::string filePath) {
+    return std::nullopt;
 }
 
 void Database::printTable(const std::string &tableName) {

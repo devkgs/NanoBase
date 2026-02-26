@@ -5,11 +5,9 @@
 class MockSerializer : public Serializer {
 public:
     // MOCK_METHOD(type_retour, nom, (arguments), (override))
-    MOCK_METHOD(void, startTable, (const std::string&, const std::vector<std::string>&), (override));
+    MOCK_METHOD(void, startTable, (const std::string&, const std::vector<std::string>&, int nextId), (override));
+    MOCK_METHOD(void, serializeRow, (const Row&), (override));
     MOCK_METHOD(void, endTable, (), (override));
-    MOCK_METHOD(void, startRow, (int), (override));
-    MOCK_METHOD(void, endRow, (), (override));
-    MOCK_METHOD(void, writeValue, (const CellValue&), (override));
 };
 
 void setupPersonTable(Database &db) {
@@ -119,8 +117,8 @@ TEST(DataBaseTest, save_test) {
 
     MockSerializer m;
 
-    EXPECT_CALL(m, startTable(testing::_, testing::_)).Times(2);
-    EXPECT_CALL(m, startRow(testing::_)).Times(6);
-    EXPECT_CALL(m, writeValue(testing::_)).Times(18);
+    EXPECT_CALL(m, startTable(testing::_, testing::_, testing::_)).Times(2);
+    EXPECT_CALL(m, serializeRow(testing::_)).Times(6);
+    EXPECT_CALL(m, endTable()).Times(2);
     db.save(m);
 }

@@ -7,13 +7,8 @@
 #include <unordered_map>
 #include <variant>
 #include <optional>
-#include "Serializer.h"
-
-
-struct Row {
-    int id;
-    std::vector<CellValue> cells;
-};
+#include "Serialization.h"
+#include "Types.h"
 
 struct Table {
     std::vector<std::string> columnNames;
@@ -40,6 +35,7 @@ public:
     std::optional<DbError> deleteRow(const std::string &tableName, int uniqueId);
     void printTable(const std::string &tableName);
     void save(Serializer &s);
+    std::optional<DbError> load(std::string filePath);
 private:
     std::unordered_map<std::string, Table> tables;
 };

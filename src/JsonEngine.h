@@ -8,7 +8,7 @@
 
 class JsonSerializer: public Serializer{
 public:
-    explicit JsonSerializer(OutputStorage& s): storage_(s), isFirstRow_(true){}
+    explicit JsonSerializer(OutputStorage& s);
     ~JsonSerializer() override = default;
 
     void startTable(const std::string& name,
