@@ -8,7 +8,7 @@
 
 class JsonSerializer: public Serializer{
 public:
-    explicit JsonSerializer(OutputStorage& s);
+    explicit JsonSerializer(OutputStorage<std::string>& s);
     ~JsonSerializer() override = default;
 
     void startTable(const std::string& name,
@@ -17,13 +17,13 @@ public:
     void serializeRow(const Row& row) override;
     void endTable() override;
 private:
-    OutputStorage& storage_;
+    OutputStorage<std::string>& storage_;
     bool isFirstRow_; // Track if we need to add a comma between JSON objects
 };
 
 class JsonDeserializer: public Deserializer {
 public:
-    explicit JsonDeserializer(InputStorage& s): storage_(s){}
+    explicit JsonDeserializer(InputStorage<std::string>& s): storage_(s){}
     ~JsonDeserializer() override = default;
 
     bool loadContent() override;
@@ -32,7 +32,7 @@ public:
     std::vector<Row> getRows(const std::string& tableName) override;
     int getNextId(const std::string& tableName) override;
 private:
-    InputStorage& storage_;
+    InputStorage<std::string>& storage_;
 };
 
 #endif //NANOBASE_JSONSERIALIZER_H

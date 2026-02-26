@@ -1,10 +1,6 @@
-
 #include "JsonEngine.h"
 
-JsonSerializer::JsonSerializer(OutputStorage& s): storage_(s), isFirstRow_(true) {
-
-}
-
+JsonSerializer::JsonSerializer(OutputStorage<std::string>& s): storage_(s), isFirstRow_(true) {}
 
 void JsonSerializer::startTable(const std::string& name,
         const std::vector<std::string>& columns_name,
