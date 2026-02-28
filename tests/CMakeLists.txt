@@ -12,11 +12,20 @@ set(DATABASE_TEST_SOURCES
 )
 create_test_binary(Database_Tests "${DATABASE_TEST_SOURCES}")
 
+### JsonEngine Test ###
+set(JSONENGINE_TEST_SOURCES
+        jsonengine_test.cpp
+        main.cpp
+)
+create_test_binary(JsonEngine_Tests "${JSONENGINE_TEST_SOURCES}")
+
+
 ### All tests ###
 set(TEST_SOURCES
         ${DATABASE_TEST_SOURCES}
+        ${JSONENGINE_TEST_SOURCES}
 )
 
 add_executable(runAllTests ${TEST_SOURCES})
 add_test(NAME runAllTests COMMAND runAllTests)
-target_link_libraries(runAllTests ${CMAKE_PROJECT_NAME}_lib gtest)
+target_link_libraries(runAllTests ${CMAKE_PROJECT_NAME}_lib gtest gmock)
