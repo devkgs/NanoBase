@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
 #include "Serialization.h"
 #include "Storage.h"
 
@@ -19,6 +20,7 @@ public:
 private:
     OutputStorage<std::string>& storage_;
     bool isFirstRow_; // Track if we need to add a comma between JSON objects
+    nlohmann::json j_;
 };
 
 class JsonDeserializer: public Deserializer {
