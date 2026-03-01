@@ -3,9 +3,6 @@
 #include "JsonEngine.h"
 #include "Storage.h"
 
-/*
- *
- */
 //template <typename T> // public OutputStorage<T>
 class MockOutputStorage : public OutputStorage<std::string> {
     //MOCK_METHOD(void, save, (const std::string& content), (override));
@@ -16,8 +13,6 @@ public:
         data = content;
     }
 };
-
-
 
 TEST(JsonSerializerTest, FullSerializationFlow) {
     // 1. Setup
@@ -45,6 +40,26 @@ TEST(JsonSerializerTest, FullSerializationFlow) {
     EXPECT_EQ(result["rows"][0]["id"], 1);
     EXPECT_EQ(result["rows"][0]["cells"][0], "Alice");
     EXPECT_EQ(result["rows"][0]["cells"][1], 25);
+}
+
+TEST(JsonSerializerTest, HandleSpecialCharacters) {
+    MockOutputStorage mock_storage;
+    JsonSerializer serializer(mock_storage);
+
+    std::vector<std::string> columns = {"notes"};
+    Row row;
+    row.id = 1;
+    // Test with quotes, backslashes and newlines
+    row.cells = {"He said \"Hello\"\nLine 2 \\"};
+
+    serializer.startTable("SpecialTable", columns, 1);
+    serializer.serializeRow(row);
+    serializer.endTable();
+
+    auto result = nlohmann::json::parse(mock_storage.data);
+
+    // nlohmann should have escaped these automatically
+    EXPECT_EQ(result["rows"][0]["cells"][0], "He said \"Hello\"\nLine 2 \\");
 }
 
 /*
